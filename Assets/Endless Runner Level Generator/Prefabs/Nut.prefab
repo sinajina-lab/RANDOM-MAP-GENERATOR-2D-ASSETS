@@ -70,6 +70,13 @@ MonoBehaviour:
   groundHeight: 0
   groundRight: 0
   screenRight: 0
+  spawnedLevelParts:
+  - {fileID: 1612126816197548055, guid: dee9c96b2206f024c92e52f289d82d69, type: 3}
+  - {fileID: 6590178618258456815, guid: 3768d0daf99a79541b5780887d60f469, type: 3}
+  - {fileID: 3954677067369699544, guid: a4ce5b1a271c3d14faf0f2293324c8d9, type: 3}
+  - {fileID: 3510046011454605487, guid: 6e387150a91440e4bba37b54c93ad684, type: 3}
+  - {fileID: 5065782233068660987, guid: a2279200c4e1e364b9005b9a65e9d3c4, type: 3}
+  - {fileID: 7309859286755663518, guid: 38724602ecae1c1438d4ab503e424aa0, type: 3}
 --- !u!212 &5338400641073999230
 SpriteRenderer:
   m_ObjectHideFlags: 0

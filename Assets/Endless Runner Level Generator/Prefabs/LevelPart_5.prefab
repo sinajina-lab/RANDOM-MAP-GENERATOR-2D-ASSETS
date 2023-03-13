@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1505419146981011721}
   m_Layer: 0
   m_Name: LevelPart_5
-  m_TagString: Untagged
+  m_TagString: level
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   groundHeight: 0
   groundRight: 0
   screenRight: 0
+  spawnedLevelParts: []
 --- !u!1001 &5065782231212830084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5065782233068660987}
     m_Modifications:
+    - target: {fileID: 932034378870527379, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
+      propertyPath: spawnedLevelParts.Array.data[4]
+      value: 
+      objectReference: {fileID: 5065782233068660987}
     - target: {fileID: 5338400641073999225, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
       propertyPath: m_Name
       value: Nut

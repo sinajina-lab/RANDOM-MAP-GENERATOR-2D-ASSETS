@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7413394598868838095}
   m_Layer: 0
   m_Name: LevelPart_4
-  m_TagString: Untagged
+  m_TagString: level
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   groundHeight: 0
   groundRight: 0
   screenRight: 0
+  spawnedLevelParts: []
 --- !u!1 &3510046012507940729
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +90,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3510046011454605487}
     m_Modifications:
+    - target: {fileID: 932034378870527379, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
+      propertyPath: spawnedLevelParts.Array.data[3]
+      value: 
+      objectReference: {fileID: 3510046011454605487}
     - target: {fileID: 5338400641073999225, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
       propertyPath: m_Name
       value: Nut
@@ -151,6 +156,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3510046011454605487}
     m_Modifications:
+    - target: {fileID: 932034378870527379, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
+      propertyPath: spawnedLevelParts.Array.data[3]
+      value: 
+      objectReference: {fileID: 3510046011454605487}
     - target: {fileID: 5338400641073999225, guid: 35c6365f4ccd74547a6568feeaf5bcbf, type: 3}
       propertyPath: m_Name
       value: Nut
