@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/2D_LevelGenerationIn3D_World/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Endless Runner Level Generator/Scene/RunnerMapGeneration.unity
+    guid: 5eb89d0cf6a4dcc43a978266d89d7f3e
   m_configObjects: {}

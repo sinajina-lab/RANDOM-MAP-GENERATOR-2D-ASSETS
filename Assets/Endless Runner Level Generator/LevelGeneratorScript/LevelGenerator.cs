@@ -11,15 +11,28 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] Transform levelPart_1;
     [SerializeField] private GameObject player;
 
-    private List<Transform> spawnedLevelParts = new List<Transform>();
+    //different groups of nuts that will be spawned
+    [SerializeField]private List<Transform> spawnedLevelParts = new List<Transform>();
     private Vector3 lastEndPosition;
 
     private void Awake()
     {
+        if (levelPart_Start == null)
+        {
+            Debug.LogError("Level part start transform is null!");
+            return;
+        }
+
+        if (player == null)
+        {
+            Debug.LogError("Player object is null!");
+            return;
+        }
+
         lastEndPosition = levelPart_Start.Find("EndPosition").position;
 
-        int startingSpawnLevelParts = 5;
-        for (int i = 0; i < startingSpawnLevelParts; i++)
+        
+        for (int i = 0; i < spawnedLevelParts.Count; i++)
         {
             SpawnLevelPart();
         }
@@ -27,7 +40,13 @@ public class LevelGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(player.transform.position, lastEndPosition) < PLAYER_DISTANCE_SPAWN_LEVEL_PART)
+        if (player == null)
+        {
+            Debug.LogError("Player object is null!");
+            return;
+        }
+
+        if (player !=null && Vector3.Distance(player.transform.position, lastEndPosition) < PLAYER_DISTANCE_SPAWN_LEVEL_PART)
         {
             SpawnLevelPart();
         }
@@ -42,6 +61,12 @@ public class LevelGenerator : MonoBehaviour
     {
         Transform levelPartTransform;
 
+        //if (levelPart_1 == null)
+        //{
+        //    Debug.LogError("Level part prefab is null!");
+        //    return;
+        //}
+
         if (spawnedLevelParts.Count > 0)
         {
             levelPartTransform = spawnedLevelParts[0];
@@ -53,8 +78,19 @@ public class LevelGenerator : MonoBehaviour
             levelPartTransform = Instantiate(levelPart_1);
         }
 
+        //if (levelPartTransform == null)
+        //{
+        //    Debug.LogError("Level part transform is null!");
+        //    return;
+        //}
+
         levelPartTransform.position = lastEndPosition;
-        lastEndPosition = levelPartTransform.Find("EndPosition").position;
+        var t = levelPartTransform.Find("EndPosition");
+        if(t == null)
+        {
+            Debug.Log("Can't find EndPosition");
+        }
+        //lastEndPosition = levelPartTransform.Find("EndPosition").position;
 
         spawnedLevelParts.Add(levelPartTransform);
     }

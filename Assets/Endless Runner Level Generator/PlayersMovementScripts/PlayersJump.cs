@@ -8,6 +8,10 @@ public class PlayersJump : MonoBehaviour
     [SerializeField] float jumpDelay = 0.2f; // The delay before the player can jump again
     [SerializeField] float jumpGracePeriod = 0.1f;// The time period in which the player can still jump after leaving the ground
     [SerializeField] float maxJumpDistance = 2f; // The maximum distance the player can jump
+    
+    //[SerializeField] float jumpHeight = 5;
+    //[SerializeField] float gravityScale = 5;
+    //[SerializeField] float fallGravityScale = 15;
 
     private bool canJump = false; // A boolean that keeps track of whether the player can jump
     private bool isGrounded = false; // A boolean that keeps track of whether the player is grounded
@@ -52,8 +56,11 @@ public class PlayersJump : MonoBehaviour
         float distance = Vector2.Distance(currentNut.position, transform.position);
         float jumpDistance = Mathf.Min(distance, maxJumpDistance);
 
+        //rb.gravityScale = gravityScale;
+
         // Apply force to the rigidbody of the player to make them jump
-        rb.AddForce(direction * jumpDistance * jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(direction * jumpForce * jumpDistance, ForceMode2D.Impulse);
+        //jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
 
         // Enable jumping again after a delay
         Invoke("EnableJump", jumpDelay);
@@ -74,7 +81,7 @@ public class PlayersJump : MonoBehaviour
             currentNut = collision.transform;
 
             // The player is now grounded on the nut
-            isGrounded = false;
+            isGrounded = true;
 
             // Make the player a child of the nut so that they move with it
             transform.SetParent(currentNut);
@@ -96,7 +103,7 @@ public class PlayersJump : MonoBehaviour
                 currentNut = collision.transform;
 
                 // The player is now grounded on the nut
-                isGrounded = false;
+                isGrounded = true;
             }
         }
     }
